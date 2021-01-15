@@ -68,5 +68,4 @@ int main() {
     for (int i=0; i<3; ++i) {
         cout << students[i].id << endl;
     }
-    return 0;
 }
