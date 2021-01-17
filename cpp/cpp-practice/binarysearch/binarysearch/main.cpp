@@ -42,6 +42,29 @@ int fisrtIndex(int value, int left, int right) {
     return ind;
 }
 
+double sqrt(double value) {
+    if (value < 0) return -1;
+    if (value == 0) return 0;
+    
+    double mid;
+    if (value >= 1) {
+        double left = 1, right = value;
+        mid = (left + right)/2.0;
+        while (abs(mid * mid - value) > 0.01) {
+            if (mid * mid > value) {
+                right = mid;
+            } else if (mid * mid < value) {
+                left = mid;
+            } else {
+                return mid;
+            }
+        }
+    } else {
+        mid = 1/sqrt(1/value);
+    }
+    return mid;
+}
+
 int lastIndex(int value, int left, int right) {
     int ind = -1, mid;
     while (left <= right) {
@@ -78,5 +101,8 @@ int main() {
     ind = lastIndex(5, 0, 8);
     cout << "last index of 5 is in the position: " << ind << endl;
     
+    double sq;
+    sq = sqrt(0.2);
+    cout << sq << endl;
     return 0;
 }
