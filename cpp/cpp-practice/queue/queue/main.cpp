@@ -57,7 +57,13 @@ int main() {
     pop();
     pop();
     isEmpty();
+    
+    
+    cout << int(sqrt(12));
     return 0;
 }
+
+
+
 
 
