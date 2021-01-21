@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct Node {
@@ -20,6 +21,7 @@ struct Node {
     }
 };
 
+
 int main() {
     Node *tree = new Node(3);
     // tree->left = new Node(2);
@@ -30,6 +32,8 @@ int main() {
     cout << tree->data << endl;
     cout << tree->left->data << endl;
     cout << tree->right->data << endl;
-    
+
+    long long int s = 4999949998;
+    cout << s << endl;
     return 0;
 }
