@@ -146,6 +146,18 @@ void radixSort(int ar[], int size) {
     }
 }
 
+void insertion_sort(int ar[], int size) {
+    for (int i=1; i<size; ++i) {
+        int key = ar[i];
+        int j = i-1;
+        while (j>=0 && ar[j]>key) {
+            ar[j+1] = ar[j];
+            j--;
+        }
+        ar[j+1] = key;
+    }
+}
+
 int main() {
     // insert code here...
     vector<int> a;
