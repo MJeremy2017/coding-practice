@@ -16,6 +16,12 @@ void printArray(int a[], int size) {
     cout << endl;
 }
 
+void printVector(vector<int> a) {
+    for (int i=0; i<a.size(); ++i) {
+        cout << a[i] << " ";
+    }
+}
+
 vector<int> bubbleSort(vector<int> arr) {
     for (int i=0; i<arr.size(); ++i) {
         for (int j=i+1; j<arr.size(); ++j) {
@@ -23,6 +29,8 @@ vector<int> bubbleSort(vector<int> arr) {
                 swap(arr[i], arr[j]);
             }
         }
+        printVector(arr);
+        cout << endl;
     }
     return arr;
 }
@@ -102,13 +110,6 @@ void quickSort(int a[], int left, int right) {
     quickSort(a, index+1, right);
 }
 
-
-void printVector(vector<int> a) {
-    for (int i=0; i<a.size(); ++i) {
-        cout << a[i] << " ";
-    }
-}
-
 void countSort(int ar[], int exp, int size) {
     int output[size];
     int count[10] = {0};
@@ -161,10 +162,11 @@ void insertion_sort(int ar[], int size) {
 int main() {
     // insert code here...
     vector<int> a;
-    a = {3, 8, 12, 2, 3, 9, 11};
+    a = {14, 3, 8, 12, 2, 3, 9, 11};
 
     a = bubbleSort(a);
-
+    
+    cout << "bubble sort\n";
     printVector(a);
     cout << endl;
 
@@ -174,7 +176,6 @@ int main() {
     mergeSort1(ar, 0, 5);
     quickSort(ar, 0, 5);
     printArray(ar, 6);
-    
-    
+        
     return 0;
 }
