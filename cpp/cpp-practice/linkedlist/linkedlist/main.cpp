@@ -91,7 +91,6 @@ public:
             pos--;
         }
         node->next = node->next->next;
-        delete node->next;
     }
     
     bool isEmpty() {
@@ -110,7 +109,22 @@ public:
         }
         cout << endl;
     }
+    
+    void reverse() {
+        Node* node = head;
+        Node* prev = NULL;
+        Node* tmp;
+        while (node) {
+            head = node;
+            tmp = node->next;
+            node->next = prev;
+            prev = node;
+            node = tmp;
+        }
+    }
 };
+
+
 // malloc allocates memory, while new allocates memory AND calls the constructor of the object you're allocating memory for.
 int main() {
     // insert code here...
@@ -123,6 +137,9 @@ int main() {
     a.delete_first();
     a.delete_last();
     a.delete_position(1);
+    a.insert_start(3);
+    a.insert_start(31);
+    a.reverse();
     a.printList();
     
     return 0;
