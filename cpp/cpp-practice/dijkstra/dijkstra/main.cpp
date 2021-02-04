@@ -69,10 +69,6 @@ int main() {
     dijkstra_algorithm(0);
     printWeights();
     
-    vector<int> a = {1, 1, 2};
-    if(find(a.begin(), a.end(), 4) == a.end()){
-        cout << "not find" << endl;
-    }
     return 0;
     
 }
