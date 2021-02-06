@@ -77,9 +77,13 @@ BST* delete_node(BST* root, int value) {
          root->right = delete_node(root->right, value);
      } else {
          if (root->left == NULL) {
-             return root->right;
+             BST* tmp = root->right;
+             delete root;
+             return tmp;
          } else if (root->right == NULL) {
-             return root->left;
+             BST* tmp = root->left;
+             delete root;
+             return tmp;
          } else {
              BST* min_node = get_min_node(root->right);
              root->data = min_node->data;
@@ -100,7 +104,7 @@ int main() {
     root = insert(root, 20);
     
     root = delete_node(root, 19);
-    Inorder(root);
+        Inorder(root);
     
     return 0;
 }
