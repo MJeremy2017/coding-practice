@@ -11,3 +11,7 @@ using namespace std;
 void log(const char* msg) {
     cout << msg << endl;
 }
+
+void init_log() {
+    log("log init");
+}
