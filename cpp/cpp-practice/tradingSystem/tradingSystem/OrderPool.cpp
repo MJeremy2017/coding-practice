@@ -60,7 +60,7 @@ void OrderPoolBuilder::add_sell_order(Order ord) {
     sell_q.push(ord);
 }
 
-void OrderPoolBuilder::run_matching(int mod, bool verbose){
+void OrderPoolBuilder::run_matching(int mod, bool verbose) {
     int n_orders = 0;
     while (!buy_q.empty()) {
         Order buy_ord = buy_q.top();
@@ -71,44 +71,57 @@ void OrderPoolBuilder::run_matching(int mod, bool verbose){
         double buy_price = buy_ord.price;
         int total_quantity = buy_quantity;
         double total_cost = 0.0;
-
-        while (!sell_q.empty()) {
-            Order sell_ord = sell_q.top();
-            sell_q.pop();
-            if (sell_ord.price <= buy_price) {
-                n_orders++;
-                if (verbose && n_orders % mod == 0) {
-                    printf("%d number of orders filled", n_orders);
+        
+        if (!sell_q.empty()) {
+            if (sell_q.top().price > buy_price) {
+                buy_q.push(buy_ord);
+                if (verbose) {
+                    cout << "[warning] minimum sell price is larger than maximum buy price" << endl;
+                    printf("unfilled sell orders: %ld \nunfilled buy orders: %ld", sell_q.size(), buy_q.size());
                     cout << endl;
                 }
-                if (buy_quantity > sell_ord.quantity) {
-                    // buy order partially filled
-                    total_cost += sell_ord.quantity * sell_ord.price;
-                    buy_quantity -= sell_ord.quantity;
-                    buy_ord.quantity = buy_quantity - sell_ord.quantity;
-                    // push back unfilled buy order
-                    buy_q.push(buy_ord);
-                } else if (buy_quantity == sell_ord.quantity) {
-                    // buy and sell order fully filled
-                    total_cost += sell_ord.quantity * sell_ord.price;
-                    buy_quantity = 0;
-                } else {
-                    // sell order partially fulfilled
-                    total_cost += buy_quantity * sell_ord.price;
-                    buy_quantity = 0;
-                    sell_ord.quantity = sell_ord.quantity - buy_quantity;
-                    // push back unfilled sell order
-                    sell_q.push(sell_ord);
-                }
-            } else {
-                if (verbose) cout << "[error] minimum sell price is larger than maximum buy price" << endl;
                 break;
+            }
+        } else {
+            break;
+        }
+        
+        while (!sell_q.empty()) {
+            Order sell_ord = sell_q.top();
+            if (sell_ord.price > buy_price) {
+                buy_q.push(buy_ord);
+                break;
+            }
+            sell_q.pop();
+            if (buy_quantity > sell_ord.quantity) {
+                n_orders += 1;
+                // buy order partially filled
+                total_cost += sell_ord.quantity * sell_ord.price;
+                buy_quantity -= sell_ord.quantity;
+                buy_ord.quantity = buy_quantity;
+            } else if (buy_quantity == sell_ord.quantity) {
+                n_orders += 2;
+                // buy and sell order fully filled
+                total_cost += sell_ord.quantity * sell_ord.price;
+                buy_quantity = 0;
+            } else {
+                n_orders += 1;
+                // sell order partially fulfilled
+                total_cost += buy_quantity * sell_ord.price;
+                sell_ord.quantity = sell_ord.quantity - buy_quantity;
+                // push back unfilled sell order
+                sell_q.push(sell_ord);
+                buy_quantity = 0;
+            }
+            if (verbose && n_orders % mod == 0) {
+                printf("%d number of orders filled", n_orders);
+                cout << endl;
             }
 
             if (buy_quantity == 0) {
                 double buy_avg_price = total_cost/total_quantity;
                 if (verbose) {
-                    cout << "order id: " << order_id << " filled with price: " << buy_avg_price << endl;
+                    cout << "order id: " << order_id << " quantity: " << total_quantity << " filled with price: " << buy_avg_price << endl;
                 }
                 break;
             };
