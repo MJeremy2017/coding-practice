@@ -16,6 +16,16 @@
 using namespace std;
 #define LOG(x) cout << x << endl;
 
+/*
+ Load Average: 1.79, 1.70, 1.49
+ ---------------------------------------------------------
+ Benchmark               Time             CPU   Iterations
+ ---------------------------------------------------------
+ BM_Matching/1        1105 ns         1104 ns       636723
+ BM_Matching/10      18600 ns        18587 ns        63177
+ BM_Matching_BigO    9852.67 (1)     9845.36 (1)
+ BM_Matching_RMS         89 %            89 %
+ */
 
 static void BM_Matching(benchmark::State& state) {
     OrderPoolBuilder order_pool;
