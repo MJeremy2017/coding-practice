@@ -61,7 +61,6 @@ void OrderPoolBuilder::add_sell_order(Order ord) {
 }
 
 void OrderPoolBuilder::run_matching(int mod, bool verbose) {
-    int n_orders = 0;
     while (!buy_q.empty()) {
         Order buy_ord = buy_q.top();
         buy_q.pop();
@@ -77,8 +76,6 @@ void OrderPoolBuilder::run_matching(int mod, bool verbose) {
                 buy_q.push(buy_ord);
                 if (verbose) {
                     cout << "[warning] minimum sell price is larger than maximum buy price" << endl;
-                    printf("unfilled sell orders: %ld \nunfilled buy orders: %ld", sell_q.size(), buy_q.size());
-                    cout << endl;
                 }
                 break;
             }
@@ -113,16 +110,19 @@ void OrderPoolBuilder::run_matching(int mod, bool verbose) {
                 sell_q.push(sell_ord);
                 buy_quantity = 0;
             }
+            
             if (verbose && n_orders % mod == 0) {
                 printf("%d number of orders filled", n_orders);
+                cout << endl;
+                printf("unfilled sell orders: %ld \nunfilled buy orders: %ld", sell_q.size(), buy_q.size());
                 cout << endl;
             }
 
             if (buy_quantity == 0) {
-                double buy_avg_price = total_cost/total_quantity;
-                if (verbose) {
-                    cout << "order id: " << order_id << " quantity: " << total_quantity << " filled with price: " << buy_avg_price << endl;
-                }
+//                double buy_avg_price = total_cost/total_quantity;
+//                if (verbose) {
+//                    cout << "order id: " << order_id << " quantity: " << total_quantity << " filled with price: " << buy_avg_price << endl;
+//                }
                 break;
             };
         }

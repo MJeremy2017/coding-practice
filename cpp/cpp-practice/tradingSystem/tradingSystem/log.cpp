@@ -17,7 +17,6 @@ void printBQ(priority_queue<Order, vector<Order>, PriceCompareDesc> q) {
         printf("orderID -> %s, price -> %f, time -> %ld, direction -> %d",
                ord.order_id.c_str(), ord.price, ord.time, ord.direction);
         cout << endl;
-
     }
 }
 

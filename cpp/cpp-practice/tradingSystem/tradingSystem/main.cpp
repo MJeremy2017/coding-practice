@@ -11,31 +11,21 @@
 #include "OrderPool.hpp"
 #include "log.hpp"
 #include <ctime>
-//#include <benchmark/benchmark.h>
+#include <benchmark/benchmark.h>
+#include "Timer.hpp"
 using namespace std;
+#define LOG(x) cout << x << endl;
 
-int main() {
-    // insert code here...
-    
+
+static void BM_Matching(benchmark::State& state) {
     OrderPoolBuilder order_pool;
-//    order_pool.init_orders(10, 21.2, 23.3, 30, false);
-//
-//    cout << "trading simulation ..." << endl;
-//    long start = time(0);
-//    order_pool.run_matching(1, true);
-//
-//    cout << "time cost: " << time(0) - start << endl;
-    
-    // simulation
-//    order_pool.init_orders(100, 21.2, 23.3, 1000, false);
-    int n = 100;
-    while (n>0) {
-        n--;
-        order_pool.init_orders(1, 21.2, 23.3, 1000, true);
-        order_pool.run_matching(1, true);
-
+    for (auto _: state) {
+        state.PauseTiming();
+        order_pool.init_orders((int)state.range(0), 21.2, 23.3, 100, false);
+        state.ResumeTiming();
+        order_pool.run_matching(1, false);
     }
-    
-    
-    return 0;
 }
+
+BENCHMARK(BM_Matching)->Arg(1)->Arg(10)->Complexity();
+BENCHMARK_MAIN();

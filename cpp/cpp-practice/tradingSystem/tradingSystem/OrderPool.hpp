@@ -16,6 +16,7 @@
 
 class OrderPoolBuilder {
 public:
+    int n_orders = 0;
     // buy order ordered by price descending
     priority_queue<Order, vector<Order>, PriceCompareDesc> buy_q;
     // sell order ordered by price
