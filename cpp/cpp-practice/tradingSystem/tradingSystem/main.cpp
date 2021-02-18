@@ -27,15 +27,25 @@ using namespace std;
  BM_Matching_RMS         89 %            89 %
  */
 
-static void BM_Matching(benchmark::State& state) {
-    OrderPoolBuilder order_pool;
-    for (auto _: state) {
-        state.PauseTiming();
-        order_pool.init_orders((int)state.range(0), 21.2, 23.3, 100, false);
-        state.ResumeTiming();
-        order_pool.run_matching(1, false);
-    }
-}
+//static void BM_Matching(benchmark::State& state) {
+//    OrderPoolBuilder order_pool;
+//    for (auto _: state) {
+//        state.PauseTiming();
+//        order_pool.init_orders((int)state.range(0), 22.9, 23.3, 100, false);
+//        state.ResumeTiming();
+//        order_pool.run_matching(1, false);
+//    }
+//}
+//
+//BENCHMARK(BM_Matching)->Arg(1)->Arg(10)->Complexity();
+//BENCHMARK_MAIN();
 
-BENCHMARK(BM_Matching)->Arg(1)->Arg(10)->Complexity();
-BENCHMARK_MAIN();
+
+int main() {
+    Log log;
+    log.setLogLevel(Log::LevelWarning);
+    log.info("Hello");
+    log.warning("Hello");
+    log.error("Hello");
+    
+}
