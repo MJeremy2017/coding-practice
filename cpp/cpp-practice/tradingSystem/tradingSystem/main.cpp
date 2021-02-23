@@ -41,10 +41,3 @@ static void BM_Matching(benchmark::State& state) {
 //BENCHMARK(BM_Matching)->Arg(1)->Arg(10)->Complexity();
 BENCHMARK(BM_Matching);
 BENCHMARK_MAIN();
-
-//int main() {
-//    OrderPoolBuilder order_pool;
-//    order_pool.init_orders(100, 22.9, 23.3, 100, false);
-//    order_pool.run_matching(1, true);
-//
-//}
