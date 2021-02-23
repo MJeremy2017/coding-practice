@@ -13,12 +13,12 @@
 
 class PriceCompareDesc {
 public:
-    bool operator() (Order ord1, Order ord2);
+    bool operator() (Order* ord1, Order* ord2);
 };
 
 class PriceCompareAsc {
 public:
-    bool operator() (Order ord1, Order ord2);
+    bool operator() (Order* ord1, Order* ord2);
 };
 
 
