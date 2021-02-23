@@ -17,14 +17,17 @@ using namespace std;
 #define LOG(x) cout << x << endl;
 
 /*
- Load Average: 1.79, 1.70, 1.49
- ---------------------------------------------------------
- Benchmark               Time             CPU   Iterations
- ---------------------------------------------------------
- BM_Matching/1        1105 ns         1104 ns       636723
- BM_Matching/10      18600 ns        18587 ns        63177
- BM_Matching_BigO    9852.67 (1)     9845.36 (1)
- BM_Matching_RMS         89 %            89 %
+ Run on (12 X 2600 MHz CPU s)
+ CPU Caches:
+   L1 Data 32 KiB (x6)
+   L1 Instruction 32 KiB (x6)
+   L2 Unified 256 KiB (x6)
+   L3 Unified 12288 KiB (x1)
+ Load Average: 1.56, 1.49, 1.44
+ ------------------------------------------------------
+ Benchmark            Time             CPU   Iterations
+ ------------------------------------------------------
+ BM_Matching 1017918253 ns   1016586000 ns            1
  */
 
 static void BM_Matching(benchmark::State& state) {
