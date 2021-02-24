@@ -43,5 +43,23 @@ int main() {
     cout << sizeof(c2) << endl;  // 24 bytes
     cout << sizeof(c3) << endl;  // 6 bytes with last character '\0' as ending
     
+    
+    // more on strings
+    // string is always read only on memory
+    const char* aa = "abc";
+    const wchar_t* ab = L"abc";
+    const char16_t* ac = u"abc";
+    
+    int arr1[3] = {1, 11, 3};
+    char arr2[4] = {'a', 'b', 'c', '\0'};
+    cout << *(arr1+1) << endl;
+    cout << *arr2 << endl;
+    cout << arr2 << endl;
+    cout << sizeof(arr2) << endl;
+    
+    cout << sizeof(*aa) << endl;
+    cout << sizeof(*ab) << endl;
+    cout << sizeof(*ac) << endl;
+
     return 0;
 }
