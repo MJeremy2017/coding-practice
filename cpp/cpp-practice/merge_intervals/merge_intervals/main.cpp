@@ -28,7 +28,7 @@ void merge_intervals(vector<vector<int>> intervals) {
         int start = ans.back()[0];
         int end = ans.back()[1];
         if (intervals[i][0] <= end && intervals[i][1] > end) {
-            ans.erase(ans.end());
+            ans.pop_back();
             ans.push_back({start, intervals[i][1]});
         } else if (intervals[i][0] > end) {
             ans.push_back(intervals[i]);
