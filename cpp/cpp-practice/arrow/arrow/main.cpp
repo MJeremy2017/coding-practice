@@ -7,7 +7,9 @@
 
 #include <iostream>
 #include <vector>
+#include <benchmark.h>
 using namespace std;
+
 
 class Entity {
 public:
@@ -74,19 +76,21 @@ void Binary2dec(vector<int> v) {
 
 int main(int argc, const char * argv[]) {
     // insert code here...
+    // static library (.a, .lib) is loaded at compile time with all code from libraries are copied to the code
+    // dynamic library (.so, .dll) is loaded at run time with refercence to the library code
     ScopedPtr sp = new Entity(12);
     // -> overloaded a-> == a.operator->()
     sp->Print();
-    
-    // vectirs
+
+    // vectors
     vector<Entity> v;
     // 3 copies
     // construct entity and place into the vector makes a copy, expanding vector makes another copy
     v.push_back(Entity(2));
     v.push_back(Entity(3));
-    
+
     cout << "-------" << endl;
-    
+
     // 2 copies
     vector<Entity> v2;
     v2.reserve(2);
@@ -94,12 +98,12 @@ int main(int argc, const char * argv[]) {
     v2.push_back(Entity(3));
 
     cout << "-------" << endl;
-    
+
     // 0 copies
     vector<Entity> v3;
     v3.reserve(2);
     v3.emplace_back(2);
     v3.emplace_back(3);
-    
+
     return 0;
 }
