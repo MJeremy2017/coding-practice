@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <benchmark.h>
+#include <Engine.hpp>
 using namespace std;
 
 
@@ -78,6 +79,7 @@ int main(int argc, const char * argv[]) {
     // insert code here...
     // static library (.a, .lib) is loaded at compile time with all code from libraries are copied to the code
     // dynamic library (.so, .dll) is loaded at run time with refercence to the library code
+    // https://domiyanyue.medium.com/c-development-tutorial-4-static-and-dynamic-libraries-7b537656163e
     ScopedPtr sp = new Entity(12);
     // -> overloaded a-> == a.operator->()
     sp->Print();
@@ -104,6 +106,9 @@ int main(int argc, const char * argv[]) {
     v3.reserve(2);
     v3.emplace_back(2);
     v3.emplace_back(3);
+    
+    // self build library
+    engine::printMsg("hello world");
 
     return 0;
 }
