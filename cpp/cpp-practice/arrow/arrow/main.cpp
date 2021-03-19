@@ -109,6 +109,8 @@ int main(int argc, const char * argv[]) {
     
     // self build library
     engine::printMsg("hello world");
+    cout << INT_MAX << endl;  // 2147483647
+    cout << LONG_MIN << endl;
 
     return 0;
 }

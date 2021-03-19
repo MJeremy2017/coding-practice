@@ -10,6 +10,5 @@
 
 int main() {
     engine::printMsg("hello");
-    
     return 0;
 }
