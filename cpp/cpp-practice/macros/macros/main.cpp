@@ -14,11 +14,22 @@ using namespace std;
 #define LOG(x)
 #endif
 
+struct values {
+    string s;
+    int a;
+};
+
 // return multiple variables
 tuple<string, int> get2() {
     string s = "hello";
     int a = 3;
     return make_pair(s, a);
+}
+
+values get2second() {
+    string s = "hello";
+    int a = 3;
+    return {s, a};
 }
 
 
