@@ -40,5 +40,7 @@ int main(int argc, const char * argv[]) {
     
     int* arr = new int[]{1, 2};
     cout << arr[1] << endl;
+    
+    cout << INT_MAX << endl;
     return 0;
 }
