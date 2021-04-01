@@ -8,6 +8,7 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <vector>
 
 struct Timer {
     std::chrono::time_point<std::chrono::steady_clock> start, end;
@@ -45,5 +46,15 @@ int main(int argc, const char * argv[]) {
     
     // measure time
     func();
+    
+    // sort
+    std::vector<int> v = {3, 2, 4, 11, 2};
+    std::sort(v.begin(), v.end(), [](int a, int b) {
+        return a < b;
+    });
+    
+    for (int x:v) {
+        std::cout << x << '\n';  // faster then endl;
+    }
     return 0;
 }
