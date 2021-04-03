@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct Book {
@@ -68,4 +69,5 @@ int main() {
     for (int i=0; i<3; ++i) {
         cout << students[i].id << endl;
     }
+
 }
