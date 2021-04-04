@@ -8,6 +8,7 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <stack>
 using namespace std;
 
 int main(int argc, const char * argv[]) {
@@ -29,5 +30,9 @@ int main(int argc, const char * argv[]) {
     vector<int> aa = {1, 2, 4, 2};
     auto it = find_if(aa.begin(), aa.end(), [](int value) {return value > 3;});
     cout << *it << endl;
+    
+    stack<int> st;
+    if (!st.empty() && st.top() == 1)
+        cout << st.top() << endl;
     return 0;
 }
