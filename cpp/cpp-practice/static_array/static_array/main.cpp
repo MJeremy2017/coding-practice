@@ -11,6 +11,12 @@
 #include <stack>
 using namespace std;
 
+struct Entity {
+    int x;
+    int y;
+};
+
+
 int main(int argc, const char * argv[]) {
     array<int, 3> arr;
     arr[1] = 2;
@@ -52,6 +58,12 @@ int main(int argc, const char * argv[]) {
         delete[] a2d[i];
     }
     delete[] a2d;
+    
+    
+    Entity e = {3, 4};
+    int* pointer = (int*)&e;
+    
+    cout << pointer[0] << ", " << pointer[1] << endl;
     
     return 0;
 }
