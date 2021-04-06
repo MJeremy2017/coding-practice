@@ -34,5 +34,24 @@ int main(int argc, const char * argv[]) {
     stack<int> st;
     if (!st.empty() && st.top() == 1)
         cout << st.top() << endl;
+    
+    // 2d array
+    // [ ] [ ] [ ] ... [ ]
+    //  |   |
+    // [ ] [ ]
+    // arr -> 5 * 20
+    int** a2d = new int*[5];
+    for (int i=0; i<5; ++i) {
+        a2d[i] = new int[20];
+    }
+    
+    cout << a2d[3][11] << '\n';
+    
+    // delete: delete both the a2d pointer and a2d
+    for (int i=0; i<5; ++i) {
+        delete[] a2d[i];
+    }
+    delete[] a2d;
+    
     return 0;
 }
