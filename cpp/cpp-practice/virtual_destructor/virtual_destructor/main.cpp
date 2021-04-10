@@ -33,6 +33,12 @@ public:
 };
 
 int main(int argc, const char * argv[]) {
+    int x = 5;
+    int y = 2;
+    if (x&y) {
+        cout << "dsfasdfs" << endl;
+    }
+    
     // insert code here...
     Base* base = new Base;
     delete base;
