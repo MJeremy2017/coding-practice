@@ -42,7 +42,7 @@ class Square : public Shape {
       : Shape(S_name), side(value){}
     
     void get_info(){
-      cout<<"Area of the square is: "<<side * side<<endl;
+      cout << "Area of the square is: "<< side * side << endl;
     }
 };
 
@@ -74,9 +74,11 @@ int main(int argc, const char * argv[]) {
     }
     
     vector<int> vec = {1, 2, 3, 4};
+//    int x = 1;
     vector<int> new_vec = vector<int>(vec.begin(), vec.begin()+1);
+    cout << vec[0] << endl;
     cout << vec.back() << endl;
-    vec.erase(vec.end());
+//    vec.erase(vec.end());
     for (auto i:new_vec) {
         cout << i << endl;
     }
