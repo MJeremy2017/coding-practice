@@ -49,39 +49,52 @@ class Square : public Shape {
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    double value = 3.213;
-    double value2 = (int)value;
-    cout << value << " " << value2 << endl;
-    
-    Derived* d = new Derived;
-    Base* b = d;
-    // downcasting
-//    Derived* ac = dynamic_cast<Derived*>(b);  // runtime checking
-    
-//    if (ac) {
-//        cout << ac << endl;
+//    double value = 3.213;
+//    double value2 = (int)value;
+//    cout << value << " " << value2 << endl;
+//
+//    Derived* d = new Derived;
+//    Base* b = d;
+//    // downcasting
+////    Derived* ac = dynamic_cast<Derived*>(b);  // runtime checking
+//
+////    if (ac) {
+////        cout << ac << endl;
+////    }
+//
+//    string S_name = "square";
+//    int v = 3;
+//    Shape* s = new Square(S_name, v);
+//    s->get_info();
+//
+//    Square* sq = dynamic_cast<Square*>(s);
+//
+//    if (sq) {
+//        sq->get_info();
 //    }
+//
+//    vector<int> vec = {1, 2, 3, 4};
+//    vector<int> new_vec = vector<int>(vec.begin(), vec.begin()+1);
+//    cout << vec[0] << endl;
+//    cout << vec.back() << endl;
+////    vec.erase(vec.end());
+//    for (auto i:new_vec) {
+//        cout << i << endl;
+//    }
+//
+    struct Case {
+        string name;
+    };
     
-    string S_name = "square";
-    int v = 3;
-    Shape* s = new Square(S_name, v);
-    s->get_info();
+    Case* c1 = new Case;
+    c1->name = "jj";
+    cout << c1->name << endl;
     
-    Square* sq = dynamic_cast<Square*>(s);
+    Case* c2 = c1;
+    c2->name = "MM";
+    cout << c1->name << endl;
     
-    if (sq) {
-        sq->get_info();
-    }
     
-    vector<int> vec = {1, 2, 3, 4};
-//    int x = 1;
-    vector<int> new_vec = vector<int>(vec.begin(), vec.begin()+1);
-    cout << vec[0] << endl;
-    cout << vec.back() << endl;
-//    vec.erase(vec.end());
-    for (auto i:new_vec) {
-        cout << i << endl;
-    }
     
     return 0;
 }
