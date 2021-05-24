@@ -1,2 +1,1 @@
-# leetcoding
-leetcode daily practice
+Coding Practice
