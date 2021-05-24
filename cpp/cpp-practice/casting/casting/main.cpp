@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 using namespace std;
 
 class Base {
@@ -94,7 +95,22 @@ int main(int argc, const char * argv[]) {
     c2->name = "MM";
     cout << c1->name << endl;
     
+    map<Case*, int> t;
+    Case* c3 = new Case;
+    c3->name = "hello";
+    t[c3] = 1;
     
+    Case* c4 = new Case;
+    c4->name = "hello";
+    t[c4] = 0;
+    cout << "result of c3: " << t[c3] << " map size: " << t.size() << endl;  // size of 2
+    
+    map<int, int> m2;
+    int a = 1;
+    int b = 1;
+    m2[a] = 1;
+    m2[b] = 0;
+    cout << m2.size() << endl;
     
     return 0;
 }
