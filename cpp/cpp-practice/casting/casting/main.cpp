@@ -112,5 +112,13 @@ int main(int argc, const char * argv[]) {
     m2[b] = 0;
     cout << m2.size() << endl;
     
+    string str = "sataaaasddsa";
+    // return the end of the pointer
+    auto pend = remove(str.begin(), str.end(), 'a');
+    for (auto it=str.begin(); it!=pend; it++) {
+        cout << *it << " ";  // stsdds
+    }
+    
+    
     return 0;
 }
