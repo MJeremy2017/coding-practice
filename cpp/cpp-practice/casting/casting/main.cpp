@@ -119,6 +119,22 @@ int main(int argc, const char * argv[]) {
         cout << *it << " ";  // stsdds
     }
     
+    vector<pair<int, int>> vpair[10];
+    vpair[0].emplace_back(3, 2);
+    vpair[0].emplace_back(4, 2);
+    
+    map<int, bool> mp = {
+        {3, true}
+    };
+    
+    if (mp[3])
+        cout << "get value from map" << endl;
+
+    if (mp[2])
+        cout << "get value from map" << endl;
+
+    
+    
     
     return 0;
 }
