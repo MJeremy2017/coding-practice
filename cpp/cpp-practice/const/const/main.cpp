@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+#include <memory>
 using namespace std;
 
 class Entity {
@@ -26,7 +27,13 @@ void printEntity(const Entity& e) {
     cout << value << endl;
 }
 
-
+class A {
+public:
+    void show()
+    {
+        cout << "A::show()" << endl;
+    }
+};
 
 
 int main() {
@@ -47,9 +54,26 @@ int main() {
     int* const c = new int;  // pointer is a constant that the pointer forever points to a fixed address
     *c = 11;
     *c = 12;
-//    c = &value;  fail: pointer can not be re-assigned
     
+    unique_ptr<class A> p1(new class A);
+    p1->show();
+    cout << p1.get() << endl;
     
+    unique_ptr<class A> p2 = move(p1);
+    cout << p1.get() << endl;  // becomes null
+    cout << p2.get() << endl;
+    
+    cout << "shared pointer" << endl;
+    shared_ptr<class A> pp1(new class A);
+    shared_ptr<class A> pp2(pp1);
+    
+    cout << pp1.use_count() << endl;
+    cout << pp2.use_count() << endl;
+    cout << "pp1 relinquishes ownership" << endl;
+    pp1.reset();
+    // Many shared_ptr can point to a single resource. shared_ptr maintains reference count for this propose. when all shared_ptr’s pointing to resource goes out of scope the resource is destroyed.
+    cout << pp1.use_count() << endl;
+    cout << pp2.use_count() << endl;
     
     return 0;
 }
