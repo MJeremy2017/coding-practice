@@ -22,3 +22,15 @@ if j-weights[i] < 0:
 dp[i][j] = max(dp[i-1][j], values[i] + dp[i-1][j-weights[i]])
   
 ```
+
+## Binary search
+```
+while left <= right:
+  mid = (left + right) // 2
+  if A[mid] < target:
+      left = mid+1
+  elif A[mid] == target:
+      // DO
+  else:
+      right = mid - 1
+```
