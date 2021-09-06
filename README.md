@@ -34,3 +34,27 @@ while left <= right:
   else:
       right = mid - 1
 ```
+
+## backtrack
+```
+def backtrack(tmp, to_iterate):
+  if len(to_iterate) == 0:
+      return 
+  for it in to_iterate:
+    tmp.add(it)
+    backtrack(tmp, to_iterate)
+    tmp.remove(it)
+  return
+```
+
+## dp & dfs
+```
+def dfs(dp, currentCase):
+  if currentCase == endCase:
+    return 
+  if not dp[currentCase]:
+    dp[currentCase] = 'inf'
+    for subCase in currentCase.getSubCases():
+      dp[currentCase] = min(dp[currentCase], dfs(dp, subCase))
+  return dp[currentCase]
+```
