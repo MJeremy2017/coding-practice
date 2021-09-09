@@ -58,3 +58,11 @@ def dfs(dp, currentCase):
       dp[currentCase] = min(dp[currentCase], dfs(dp, subCase))
   return dp[currentCase]
 ```
+
+## Trie/N-ary
+```
+class TrieNode:
+  def __init__(self):
+    self.children = {}
+    self.end = False
+```
