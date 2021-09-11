@@ -35,7 +35,7 @@ while left <= right:
       right = mid - 1
 ```
 
-## backtrack
+## Backtrack
 ```
 def backtrack(tmp, to_iterate):
   if len(to_iterate) == 0:
@@ -47,7 +47,7 @@ def backtrack(tmp, to_iterate):
   return
 ```
 
-## dp & dfs
+## DP & DFS
 ```
 def dfs(dp, currentCase):
   if currentCase == endCase:
