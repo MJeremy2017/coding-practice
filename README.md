@@ -66,3 +66,20 @@ class TrieNode:
     self.children = {}
     self.end = False
 ```
+
+## Dijikstra
+```
+graph = [[float('inf') for _ in cols] for _ in rows]
+q = [(cost, init_x, init_y)]
+while q:
+  cost, x, y = q.pop(0)
+  if (x,y) == target:
+    return cost
+  directions = [...]
+  for (x_next, y_next) in directions:
+    cost_next = cost + func(x_next, y_next)
+    if cost_next < graph[x_next][y_next]:
+      graph[x_next][y_next] = cost_next
+      q.push(cost_next, x_next, y_next)
+return graph[target]
+```
