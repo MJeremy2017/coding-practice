@@ -72,7 +72,7 @@ class TrieNode:
 graph = [[float('inf') for _ in cols] for _ in rows]
 q = [(cost, init_x, init_y)]
 while q:
-  cost, x, y = q.pop(0)
+  cost, x, y = heapq.heappop(q)
   if (x,y) == target:
     return cost
   directions = [...]
@@ -80,6 +80,6 @@ while q:
     cost_next = cost + func(x_next, y_next)
     if cost_next < graph[x_next][y_next]:
       graph[x_next][y_next] = cost_next
-      q.push(cost_next, x_next, y_next)
+      heapq.heappush(q, (cost_next, x_next, y_next))
 return graph[target]
 ```
