@@ -83,3 +83,17 @@ while q:
       heapq.heappush(q, (cost_next, x_next, y_next))
 return graph[target]
 ```
+
+## BST
+```
+def find(node, val):
+  if node is None:
+    return None
+   
+  if node.val == val:
+    // do something & return
+  if val < node.val:
+    return find(node.left, val)
+  else:
+    return find(node.right ,val)
+```
