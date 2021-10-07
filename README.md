@@ -59,6 +59,21 @@ def dfs(dp, currentCase):
   return dp[currentCase]
 ```
 
+__Minimum (Maximum) Path to Reach a Target__
+
+Bottom up
+
+```
+for (int i = 1; i <= target; ++i) {
+   for (int j = 0; j < ways.size(); ++j) {
+       if (ways[j] <= i) {
+           dp[i] = min(dp[i], dp[i - ways[j]] + cost / path / sum) ;
+       }
+   }
+}
+ 
+return dp[target]
+```
 ## Trie/N-ary
 ```
 class TrieNode:
