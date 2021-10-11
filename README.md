@@ -114,7 +114,6 @@ def find(node, val):
 ```
 
 ## Prefix Sum
----
 ```
 pre = [0]
 s = 0
