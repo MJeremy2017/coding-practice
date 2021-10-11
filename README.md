@@ -112,3 +112,13 @@ def find(node, val):
   else:
     return find(node.right ,val)
 ```
+
+## Prefix Sum
+---
+```
+pre = [0]
+s = 0
+for i in values:
+  s += i
+  pre.append(s)
+```
