@@ -15,7 +15,7 @@ while nums > 0:
 i: the current index so far
 j: weight
 
-dp[i][j]: the value can reached given limitation __j__ until item i, where not all __i__ items need to be selected.
+dp[i][j]: the value can reached given limitation j until item i, where not all i items need to be selected. j is weight column, i is item index.
 ------------------------------------------------------------------------------------------------------------------
 if j-weights[i] < 0:
   dp[i][j] = dp[i-1][j]
